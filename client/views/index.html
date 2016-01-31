@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html ng-app="hello">
+<html ng-app="helloApp">
 
 	<body>
 		<div ng-controller="helloController">
 		 	<h1>Hello {{helloTarget}}</h1>
+	 		<input type="text" placeholder="Someone's Name" ng-model="targetName">
+		 		<button ng-click="addTarget()">Add</button>
+		 	</input>
+		 	<ul>
+		 		<div ng-repeat="target in targets">
+		 			<button ng-click="removeTarget($index)"> x </button>
+		 			{{target.name}} 
+		 		</div>
+		 	</ul>
 		</div>
 		
 	</body>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
+	<script src="js/app.js"></script>
 	<script src="controllers/hello-controller.js"></script>
 </html>
 
