@@ -1,3 +1,4 @@
-var app = angular.module('helloApp',[
+var app = angular.module('efficientApp',[
 	'ngResource',
-	'helloApp.targets'])
+	'efficientApp.todo'
+])

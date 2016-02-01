@@ -1,35 +1,37 @@
 (function(){
-	"use strict"
-	var targets = angular.module('helloApp.targets',['ngResource'])
+	'use strict'
+	angular
+		.module('efficientApp.todo',['ngResource'])
+		.controller('todoController', ['$resource', TodoController]);
 
-	targets.controller('targetsController', ['$scope','$resource', 
-		function($scope, $resource) {
+	function TodoController($resource) {
+		var vm = this;
 
-			var Target = $resource('/api/targets/:id',{id: "@_id"});
+		vm.globalTarget = "World";
+		vm.targets = [];
 
-			Target.query(function(results) {
-				$scope.targets = results;
+		var Target = $resource('/api/targets/:id',{id: '@_id'});
+
+		Target.query(function(results) {
+			vm.targets = results;
+		});
+
+
+		vm.addTarget = function() {
+			var target = new Target();
+			target.name = vm.targetName;
+
+			target.$save(function(result){
+				vm.targets.push(result);
 			});
-
-			$scope.helloTarget = "World";
-			$scope.targets = [];
-
-			$scope.addTarget = function() {
-				var target = new Target();
-				target.name = $scope.targetName;
-
-				target.$save(function(result){
-					$scope.targets.push(result);
-				});
-			}
-
-			$scope.removeTarget = function(targetIndex) {
-				$scope.targets[targetIndex].$delete(function(result){
-					$scope.targets.splice(targetIndex,1);
-				});
-			}
-
 		}
-	]);
+
+		vm.removeTarget = function(targetIndex) {
+			vm.targets[targetIndex].$delete(function(result){
+				vm.targets.splice(targetIndex,1);
+			});
+		}
+
+	}
 })();
 

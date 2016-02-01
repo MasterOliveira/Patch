@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html ng-app="helloApp">
+<html ng-app="efficientApp">
 
 	<body>
-		<div ng-controller="targetsController">
-		 	<h1>Hello {{helloTarget}}</h1>
-	 		<input type="text" placeholder="Someone's Name" ng-model="targetName">
-		 		<button ng-click="addTarget()">Add</button>
+		<div ng-controller="todoController as todoList">
+		 	<h1>Todo List {{todoList.globalTarget}}</h1>
+	 		<input type="text" placeholder="Someone's Name" ng-model="todoList.targetName">
+		 		<button ng-click="todoList.addTarget()">Add</button>
 		 	</input>
 		 	<ul>
-		 		<div ng-repeat="target in targets">
-		 			<button ng-click="removeTarget($index)"> x </button>
+		 		<div ng-repeat="target in todoList.targets">
+		 			<button ng-click="todoList.removeTarget($index)"> x </button>
 		 			{{target.name}}
 		 		</div>
 		 	</ul>
