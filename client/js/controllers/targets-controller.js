@@ -1,4 +1,8 @@
-app.controller('helloController', ['$scope','$resource', 
+(function(){
+	"use strict"
+	var targets = angular.module('helloApp.targets',['ngResource'])
+
+	targets.controller('targetsController', ['$scope','$resource', 
 		function($scope, $resource) {
 
 			var Target = $resource('/api/targets/:id',{id: "@_id"});
@@ -27,4 +31,5 @@ app.controller('helloController', ['$scope','$resource',
 
 		}
 	]);
+})();
 

@@ -1,1 +1,3 @@
-var app = angular.module('helloApp',['ngResource'])
+var app = angular.module('helloApp',[
+	'ngResource',
+	'helloApp.targets'])
