@@ -1,17 +1,30 @@
-
 app.controller('helloController', ['$scope','$resource', 
-function($scope, $reource) {
-	$scope.helloTarget = "world";
-	$scope.targets = []
+		function($scope, $resource) {
 
-	$scope.addTarget = function() {
-		$scope.targets.push({ name: $scope.targetName});
-		$scope.targetName = "";
-	}
+			var Target = $resource('/api/targets/:id',{id: "@_id"});
 
-	$scope.removeTarget = function(targetIndex) {
-		$scope.targets.splice(targetIndex,1);
-	}
+			Target.query(function(results) {
+				$scope.targets = results;
+			});
 
-}]);
+			$scope.helloTarget = "World";
+			$scope.targets = [];
+
+			$scope.addTarget = function() {
+				var target = new Target();
+				target.name = $scope.targetName;
+
+				target.$save(function(result){
+					$scope.targets.push(result);
+				});
+			}
+
+			$scope.removeTarget = function(targetIndex) {
+				$scope.targets[targetIndex].$delete(function(result){
+					$scope.targets.splice(targetIndex,1);
+				});
+			}
+
+		}
+	]);
 
