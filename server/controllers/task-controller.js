@@ -1,20 +1,20 @@
-var Target = require('../models/target');
+var Task = require('../models/task');
 
 module.exports.delete = function (req, res) {
 	console.log(req.params.id)
 
-	var target = new Target(req.body);
-	console.log(target.name)
-	Target.remove({_id: req.params.id}, function (err, result) {
+	var task = new Task(req.body);
+	console.log(task.name)
+	Task.remove({_id: req.params.id}, function (err, result) {
 		res.json(result);
 	});
 }
 
 module.exports.create = function (req, res) {
 	
-	var target = new Target(req.body);
-	console.log(target.name)
-	target.save(function (err, result) {
+	var task = new Task(req.body);
+	console.log(task.name)
+	task.save(function (err, result) {
 		if (err) return console.error(err);
 		res.json(result);
 	});
@@ -22,7 +22,7 @@ module.exports.create = function (req, res) {
 
 module.exports.list = function (req, res) {
 
-	Target.find({}, function (err, result) {
+	Task.find({}, function (err, result) {
 		if (err) return console.error(err);
 		res.json(result);
 	}); 

@@ -4,13 +4,13 @@
 	<body>
 		<div ng-controller="todoController as todoList">
 		 	<h1>Todo List {{todoList.globalTarget}}</h1>
-	 		<input type="text" placeholder="Someone's Name" ng-model="todoList.targetName">
-		 		<button ng-click="todoList.addTarget()">Add</button>
+	 		<input type="text" placeholder="Someone's Name" ng-model="todoList.taskName">
+		 		<button ng-click="todoList.addTask()">Add</button>
 		 	</input>
 		 	<ul>
-		 		<div ng-repeat="target in todoList.targets">
-		 			<button ng-click="todoList.removeTarget($index)"> x </button>
-		 			{{target.name}}
+		 		<div ng-repeat="task in todoList.tasks">
+		 			<button ng-click="todoList.removeTask($index)"> x </button>
+		 			{{task.name}}
 		 		</div>
 		 	</ul>
 		</div>
@@ -19,7 +19,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
 	<script src="js/app.js"></script>
-	<script src="controllers/targets-controller.js"></script>
+	<script src="controllers/task-controller.js"></script>
 </html>
 
 <!--script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>

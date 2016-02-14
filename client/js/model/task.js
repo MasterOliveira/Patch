@@ -3,5 +3,5 @@ angular
 	.factory('task', [Task, '$resource'])
 
 function Task($resource) {
-	var Task = $resource('/api/targets/:id',{id: '@_id'});
+	var Task = $resource('/api/task/:id',{id: '@_id'});
 }
