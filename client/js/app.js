@@ -1,4 +1,6 @@
-var app = angular.module('efficientApp',[
-	'ngResource',
-	'efficientApp.task'
-])
+(function() {
+    'use strict';
+    
+	angular
+		.module('efficientApp',[])
+})();

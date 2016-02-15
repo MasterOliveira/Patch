@@ -1,36 +1,56 @@
 (function(){
-	'use strict'
-	angular
-		.module('efficientApp.task',['ngResource'])
-		.controller('todoController', ['$resource', TodoController]);
+	'use strict';
 
-	function TodoController($resource) {
+	angular
+		.module('efficientApp')
+		.controller('todoController', TodoController);
+
+	TodoController.$inject = ['taskService'];
+
+	function TodoController(taskService) {
 		var vm = this;
 
 		vm.globalTarget = "World";
 		vm.tasks = [];
 
-		var Task = $resource('/api/task/:id',{id: '@_id'});
+		vm.removeTask = removeTask
+		vm.addTask = addTask
 
-		Task.query(function(results) {
-			vm.tasks = results;
-		});
+		activate();
 
+		function activate() {
+			listTasks()
+			console.debug('TodoController was Activated!')
+		}
 
-		vm.addTask = function() {
-			var task = new Task();
+		function listTasks() {
+			taskService.listTasks()
+				.then(function(data) {
+					vm.tasks = data;
+					console.debug(data)
+				});
+		};
+
+		function addTask() {
+			var task = {};
 			task.name = vm.taskName;
+			
+			taskService.addTask(task)
+				.then(function(data) {
+					vm.tasks.push(data);
+					console.debug(data)
+				});
+				
+		};
 
-			task.$save(function(result){
-				vm.tasks.push(result);
-			});
-		}
-
-		vm.removeTask = function(taskIndex) {
-			vm.tasks[taskIndex].$delete(function(result){
-				vm.tasks.splice(taskIndex,1);
-			});
-		}
+		function removeTask(taskIndex) {
+			var taskId = vm.tasks[taskIndex]._id
+			taskService.removeTask(taskId)
+				.then(function(data) {
+					vm.tasks.splice(taskIndex,1);
+					console.debug(data)
+				});
+		};
 
 	}
 })();
