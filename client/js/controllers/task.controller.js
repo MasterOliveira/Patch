@@ -13,12 +13,13 @@
 		vm.globalTarget = "World";
 		vm.tasks = [];
 
+		vm.initialize = initialize
 		vm.removeTask = removeTask
 		vm.addTask = addTask
 
-		activate();
-
-		function activate() {
+		initialize()
+		
+		function initialize() {
 			listTasks()
 			console.debug('TodoController was Activated!')
 		}

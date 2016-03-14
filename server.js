@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use('/controllers', express.static(__dirname + '/client/js/controllers'));
-app.use('/models', express.static(__dirname + '/client/js/models'));
+app.use('/services', express.static(__dirname + '/client/js/services'));
 app.use('/js', express.static(__dirname + '/client/js'));
 
 app.get('/', function(req,res) { 
