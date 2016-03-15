@@ -4,7 +4,7 @@ var express 			= require('express')
 	, mongoose			= require('mongoose')
 	, targetsController = require('./server/controllers/task-controller');
 
-mongoose.connect('mongodb://localhost:27017/hello');
+mongoose.connect('mongodb://mongo:27017/hello');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
