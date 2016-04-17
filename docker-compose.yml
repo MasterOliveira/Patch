@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+
+  patch-web:
+    build: ./patch-web/
+    ports: 
+     - "3000:3000"
+    volumes:
+     - .:/patch-web/
+    depends_on:
+     - mongo
+
+  mongo:
+    image: mongo
