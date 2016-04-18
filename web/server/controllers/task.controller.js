@@ -3,6 +3,8 @@ var Task = require('../models/task');
 module.exports.delete = function (req, res) {
 	console.log(req.params.id)
 
+	console.log(req)
+	
 	var task = new Task(req.body);
 	console.log(task.name)
 	Task.remove({_id: req.params.id}, function (err, result) {

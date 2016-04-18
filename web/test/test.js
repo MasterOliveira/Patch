@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 
-describe('First test', function () {
-	it('should pass if the test config is working', function () {
+describe('Infrastruture Test', function () {
+	it('Should pass if the default config is working.', function () {
 		expect(true).to.be.true;
 	})
 })
