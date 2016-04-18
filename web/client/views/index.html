@@ -2,14 +2,14 @@
 <html ng-app="efficientApp">
 
 	<body>
-		<div ng-controller="todoController as todo">
-		 	<h1>Todo List {{todo.globalTarget}}</h1>
-	 		<input type="text" placeholder="Someone's Name" ng-model="todo.taskName">
-		 		<button ng-click="todo.addTask()">Add</button>
+		<div ng-controller="taskController as taskManager">
+		 	<h1>Task Manager List {{taskManager.globalTarget}}</h1>
+	 		<input type="text" placeholder="Someone's Name" ng-model="taskManager.taskName">
+		 		<button ng-click="taskManager.addTask()">Add</button>
 		 	</input>
 		 	<ul>
-		 		<div ng-repeat="task in todo.tasks">
-		 			<button ng-click="todo.removeTask($index)"> x </button>
+		 		<div ng-repeat="task in taskManager.tasks">
+		 			<button ng-click="taskManager.removeTask($index)"> x </button>
 		 			{{task.name}}
 		 		</div>
 		 	</ul>

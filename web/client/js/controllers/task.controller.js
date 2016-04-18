@@ -3,11 +3,11 @@
 
 	angular
 		.module('efficientApp')
-		.controller('todoController', TodoController);
+		.controller('taskController', TaskController);
 
-	TodoController.$inject = ['taskService'];
+	TaskController.$inject = ['taskService'];
 
-	function TodoController(taskService) {
+	function TaskController(taskService) {
 		var vm = this;
 
 		vm.globalTarget = "World";
@@ -21,7 +21,7 @@
 		
 		function initialize() {
 			listTasks()
-			console.debug('TodoController was Activated!')
+			console.debug('TaskController was initialized!')
 		}
 
 		function listTasks() {
