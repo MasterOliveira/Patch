@@ -2,12 +2,13 @@ version: '2'
 
 services:
 
-  patch-web:
-    build: ./patch-web/
+  web:
+    build: ./web/
     ports: 
      - "3000:3000"
     volumes:
-     - .:/patch-web/
+     - ./web:/web
+    working_dir: /web
     depends_on:
      - mongo
 

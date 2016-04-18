@@ -7,8 +7,8 @@ Currently it uses
 -Node (+mongoose, boddy-parser)
 -Express
 -Angular
-
-Will use in the future
 -Docker
 -DockerCompose
+
+Will use in the future
 -Node (+mocha, chai)
