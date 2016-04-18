@@ -2,7 +2,7 @@ var express 			= require('express')
 	, app 				= express()
 	, bodyParser		= require('body-parser')
 	, mongoose			= require('mongoose')
-	, targetsController = require('./server/controllers/task-controller');
+	, taskController 	= require('./server/controllers/task.controller');
 
 mongoose.connect('mongodb://mongo:27017/hello');
 
@@ -18,9 +18,9 @@ app.get('/', function(req,res) {
 });
 
 //Rest API
-app.get('/api/task', targetsController.list);
-app.post('/api/task', targetsController.create);
-app.delete('/api/task/:id', targetsController.delete);
+app.get('/api/task', taskController.list);
+app.post('/api/task', taskController.create);
+app.delete('/api/task/:id', taskController.delete);
 
 app.listen(3000, function() {
 	console.log('Listening!');
