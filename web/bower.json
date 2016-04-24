@@ -1,0 +1,25 @@
+{
+  "name": "patch",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "MasterOliveira <cassiofoliveira@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/MasterOliveira/Patch",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-mocks": "~1.5.5",
+    "angular": "~1.5.5",
+    "angular-resource": "~1.5.5"
+  }
+}

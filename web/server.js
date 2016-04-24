@@ -9,9 +9,7 @@ mongoose.connect('mongodb://mongo:27017/hello');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use('/controllers', express.static(__dirname + '/client/js/controllers'));
-app.use('/services', express.static(__dirname + '/client/js/services'));
-app.use('/js', express.static(__dirname + '/client/js'));
+app.use(express.static(__dirname + '/client/'));
 
 app.get('/', function(req,res) { 
 	res.sendFile(__dirname + '/client/views/index.html');

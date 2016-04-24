@@ -13,4 +13,4 @@ RUN npm install
 # Exposes App port
 EXPOSE 3000
 # Runs the App
-CMD ["npm", "start"]
+CMD ["nodemong", "server"]
