@@ -4,15 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/karma start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.2",
-    "chai": "^3.5.0",
     "express": "^4.13.4",
-    "mocha": "^2.4.5",
     "mongoose": "^4.3.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "karma": "^0.13.22",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.2",
+    "mocha": "^2.4.5",
+    "phantomjs": "^2.1.7"
   }
 }
