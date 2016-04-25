@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('efficientApp')
+		.module('app')
 		.controller('taskController', TaskController);
 
 	TaskController.$inject = ['taskService'];
@@ -13,22 +13,23 @@
 		vm.globalTarget = "World";
 		vm.tasks = [];
 
-		vm.initialize = initialize
+		vm.activate = activate
 		vm.removeTask = removeTask
 		vm.addTask = addTask
 
-		initialize()
+		activate()
+
+		///////////
 		
-		function initialize() {
+		function activate() {
+			console.debug('TaskController activating...')
 			listTasks()
-			console.debug('TaskController was initialized!')
 		}
 
 		function listTasks() {
 			taskService.listTasks()
 				.then(function(data) {
 					vm.tasks = data;
-					console.debug(data)
 				});
 		};
 
@@ -39,7 +40,6 @@
 			taskService.addTask(task)
 				.then(function(data) {
 					vm.tasks.push(data);
-					console.debug(data)
 				});
 				
 		};
@@ -49,7 +49,6 @@
 			taskService.removeTask(taskId)
 				.then(function(data) {
 					vm.tasks.splice(taskIndex,1);
-					console.debug(data)
 				});
 		};
 

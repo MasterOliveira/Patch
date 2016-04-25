@@ -10,15 +10,18 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha','chai'],
+    frameworks: ['mocha','chai','browserify'],
 
 
     // list of files / patterns to load in the browser
     files: [
       'client/libs/angular/angular.js',
+      'client/libs/angular-mocks/angular-mocks.js',
       'client/libs/angular-resource/angular-resource.js',
-      // 'client/js/**/*.js',
-      // 'client/js/**/*.spec.js',
+      'client/js/app.js',
+      'client/js/services/*.js',
+      'client/js/controllers/*.js',
+      'client/js/**/*.js',
       'test/**/*.js'
     ],
 
@@ -31,6 +34,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      // 'client/js/**/*.spec.js': ['browserify'],
+      // 'test/**/*.js': ['browserify']
     },
 
 
@@ -64,6 +69,7 @@ module.exports = function(config) {
     plugins: [
         'karma-chai',
         'karma-mocha',
+        'karma-browserify',
         'karma-phantomjs-launcher'
     ],
 
@@ -74,6 +80,6 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: 10
   })
 }

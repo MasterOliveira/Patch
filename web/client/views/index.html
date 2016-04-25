@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="efficientApp">
+<html ng-app="app">
 
 	<body>
 		<div ng-controller="taskController as taskManager">
 		 	<h1>Task Manager List {{taskManager.globalTarget}}</h1>
-	 		<input type="text" placeholder="Someone's Name" ng-model="taskManager.taskName">
+	 		<input type="text" placeholder="A task name" ng-model="taskManager.taskName">
 		 		<button ng-click="taskManager.addTask()">Add</button>
 		 	</input>
 		 	<ul>

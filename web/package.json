@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start"
+    "test": "./node_modules/.bin/karma start",
+    "postinstall": "./node_modules/.bin/bower install",
+    "preuninstall": "./node_modules/.bin/bower uninstall"
   },
   "author": "",
   "license": "ISC",
@@ -14,11 +16,17 @@
     "mongoose": "^4.3.7"
   },
   "devDependencies": {
+    "bower": "^1.7.9",
+    "browserify": "^13.0.0",
     "chai": "^3.5.0",
+    "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
+    "karma-browserify": "^5.0.4",
     "karma-chai": "^0.1.0",
+    "karma-jasmine": "^0.3.8",
     "karma-mocha": "^0.2.2",
     "mocha": "^2.4.5",
-    "phantomjs": "^2.1.7"
+    "phantomjs": "^2.1.7",
+    "watchify": "^3.7.0"
   }
 }

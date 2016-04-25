@@ -2,5 +2,5 @@
     'use strict';
     
 	angular
-		.module('efficientApp',[])
+		.module('app',[])
 })();

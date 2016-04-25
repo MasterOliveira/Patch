@@ -2,7 +2,7 @@
     'use strict';
 
 	angular
-		.module('efficientApp')
+		.module('app')
 		.factory('taskService', taskService);
 
 	taskService.$inject = ['$http'];
@@ -32,7 +32,6 @@
 		}
 
 		function addTask(data){
-			console.log(data)
 			return $http.post('/api/task',data)
 				.then(addTaskComplete)
 				.catch(addTaskFailed);
