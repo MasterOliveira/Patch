@@ -9,6 +9,7 @@ Currently it uses
 -Angular
 -Docker
 -DockerCompose
-
-Will use in the future
 -Node (+mocha, chai)
+-Karma
+
+
