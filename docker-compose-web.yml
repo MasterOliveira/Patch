@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+
+  web:
+    build: ./web/
+    ports: 
+     - "3000:3000"
+    volumes:
+     - ./web:/web
+    working_dir: /web
+    depends_on:
+     - mongo
+     - core
+
+
+  mongo:
+    image: mongo
+
+
+  core:
+    build: ./core/
+    ports:
+     - "5000:5000"
+    volumes:
+     - ./core:/core
+    working_dir: /core

@@ -1,16 +1,1 @@
-version: '2'
-
-services:
-
-  web:
-    build: ./web/
-    ports: 
-     - "3000:3000"
-    volumes:
-     - ./web:/web
-    working_dir: /web
-    depends_on:
-     - mongo
-
-  mongo:
-    image: mongo
+docker-compose.yml
